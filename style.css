@@ -1,0 +1,95 @@
+/* ======= Palette C ======= */
+:root {
+    --slate:  #233142; /* brand */
+    --cyan:   #0089BA; /* accent */
+    --powder: #E3F2FD; /* soft bg */
+    --sea:    #66A5AD; /* hover */
+    --white:  #FFFFFF;
+  }
+  
+  /* ======= Base ======= */
+  *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Poppins',sans-serif;}
+  body{
+    background:linear-gradient(180deg,var(--powder) 0%,#fff 65%);
+    color:var(--slate);
+    line-height:1.7;
+  }
+  a{color:var(--cyan);text-decoration:none;}a:hover{color:var(--sea);}  
+  
+  /* ======= Navigation ======= */
+  nav{
+    position:sticky;top:0;z-index:1000;
+    background:var(--slate);
+    display:flex;align-items:center;justify-content:center;
+    padding:0.8rem 1rem;
+    box-shadow:0 4px 8px rgba(0,0,0,.05);
+  }
+  nav ul{display:flex;gap:1.5rem;list-style:none;}
+  nav a{color:var(--white);font-weight:600;transition:color .25s;}
+  nav a:hover{color:var(--sea);}  
+  
+  /* hamburger button */
+  .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.9rem;cursor:pointer;margin-right:auto;line-height:1;}
+  
+  /* ======= Header ======= */
+  header{
+    background:var(--slate);
+    padding:3.5rem 1.5rem 4rem;text-align:center;color:var(--white);
+    clip-path:polygon(0 0,100% 0,100% 85%,0 100%);
+  }
+  .profile-pic{width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid var(--sea);transition:transform .4s;}
+  .profile-pic:hover{transform:scale(1.06) rotate(-2deg);}  
+  .intro h1{font-size:2.5rem;margin-top:1rem;}
+  .intro p.tagline{color:var(--powder);font-weight:500;margin-top:0.4rem;}
+  .btn-primary{display:inline-block;background:var(--cyan);color:var(--white);padding:0.65rem 1.4rem;border-radius:6px;font-weight:600;margin-top:1.2rem;transition:background .3s;}
+  .btn-primary:hover{background:var(--sea);}  
+  
+  /* ======= Flow Sections ======= */
+  main{padding:0 1.5rem;}
+  section{max-width:900px;margin:3rem auto;padding-bottom:3rem;border-bottom:2px solid var(--sea);opacity:0;transform:translateY(20px);animation:reveal .6s forwards ease-out;}
+  section:last-of-type{border-bottom:none;padding-bottom:0;}
+  h2{font-size:1.9rem;color:var(--slate);margin-bottom:1.2rem;}
+  ul{margin-left:1.2rem;}ul li{margin-bottom:0.6rem;}
+  .skills-list{display:flex;flex-wrap:wrap;gap:0.6rem;}
+  .skill{background:var(--powder);padding:0.4rem 0.9rem;border-radius:20px;font-size:0.9rem;font-weight:500;}
+  
+  /* ======= Footer ======= */
+  footer{background:var(--slate);color:var(--white);text-align:center;padding:2.2rem 1rem;margin-top:4rem;clip-path:polygon(0 0,100% 0,100% 100%,0 85%);}footer a{color:var(--cyan);}footer a:hover{text-decoration:underline;}
+  
+  /* ======= Animations ======= */
+  @keyframes reveal{to{opacity:1;transform:none;}}
+  section:nth-of-type(1){animation-delay:.2s}
+  section:nth-of-type(2){animation-delay:.35s}
+  section:nth-of-type(3){animation-delay:.5s}
+  section:nth-of-type(4){animation-delay:.65s}
+  section:nth-of-type(5){animation-delay:.8s}
+  section:nth-of-type(6){animation-delay:.95s}
+  
+  /* ======= Responsive ======= */
+  @media(max-width:768px){
+    .intro h1{font-size:2rem;}
+    .profile-pic{width:130px;height:130px;}
+    h2{font-size:1.6rem;}
+    section{margin:2.2rem auto;padding-bottom:2.2rem;}
+  }
+  
+  /* ----- Mobile Drawer Nav ----- */
+  @media(max-width:600px){
+    .menu-btn{display:block;}
+    nav{justify-content:flex-start;}
+    nav ul{position:fixed;top:0;left:-100%;flex-direction:column;gap:1.5rem;width:70%;max-width:260px;height:100vh;padding-top:4rem;padding-left:1.8rem;background:var(--slate);transition:left .3s ease;}
+    #menu-toggle:checked + .menu-btn + ul{left:0;}
+  }
+  
+  @media(max-width:500px){
+    .profile-pic{width:110px;height:110px;}
+    header{padding:3rem 1rem 3.2rem;}
+    .intro h1{font-size:1.6rem;}
+    .intro p.tagline{font-size:0.9rem;}
+    .btn-primary{padding:0.55rem 1rem;font-size:0.9rem;}
+    main{padding:0 1rem;}
+    section{margin:1.8rem auto;padding-bottom:1.8rem;}
+    ul{margin-left:0.9rem;}
+    .skill{font-size:0.8rem;}
+  }
+  
